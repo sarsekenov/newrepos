@@ -4,7 +4,7 @@
              x:Class="App2.Views.TaskPage">
     <ContentPage.Content>
         <CollectionView><!--ItemsSource="{}"-->
-            
+        
         </CollectionView>
     
     </ContentPage.Content>
