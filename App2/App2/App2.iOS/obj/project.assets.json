@@ -1821,11 +1821,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\777\\Source\\Repos\\newrepos\\App2\\App2\\App2.iOS\\App2.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\777\\source\\repos\\newrepos\\App2\\App2\\App2.iOS\\App2.iOS.csproj",
       "projectName": "App2.iOS",
-      "projectPath": "C:\\Users\\777\\Source\\Repos\\newrepos\\App2\\App2\\App2.iOS\\App2.iOS.csproj",
+      "projectPath": "C:\\Users\\777\\source\\repos\\newrepos\\App2\\App2\\App2.iOS\\App2.iOS.csproj",
       "packagesPath": "C:\\Users\\777\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\777\\Source\\Repos\\newrepos\\App2\\App2\\App2.iOS\\obj\\",
+      "outputPath": "C:\\Users\\777\\source\\repos\\newrepos\\App2\\App2\\App2.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -1846,8 +1846,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\777\\Source\\Repos\\newrepos\\App2\\App2\\App2\\App2.csproj": {
-              "projectPath": "C:\\Users\\777\\Source\\Repos\\newrepos\\App2\\App2\\App2\\App2.csproj"
+            "C:\\Users\\777\\source\\repos\\newrepos\\App2\\App2\\App2\\App2.csproj": {
+              "projectPath": "C:\\Users\\777\\source\\repos\\newrepos\\App2\\App2\\App2\\App2.csproj"
             }
           }
         }

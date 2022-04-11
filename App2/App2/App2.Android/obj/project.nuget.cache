@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WMIfLLzBZ5/WtEUehEGav96+7e7Lev2pLuOSnsnMz2OJwKcMGSzA15CEW5LLp+NNDsrFZo/gQH2g5dIKFG1ppw==",
+  "dgSpecHash": "k+UvsC4H2I1ZJK8iCLWhPHLX0o++pPd0fpOxxiZNG5gEBvrutWT61bnyhaS+JX6XdOSz3QI74YNbSXc/jUR4Ow==",
   "success": true,
-  "projectFilePath": "C:\\Users\\777\\Source\\Repos\\newrepos\\App2\\App2\\App2.Android\\App2.Android.csproj",
+  "projectFilePath": "C:\\Users\\777\\source\\repos\\newrepos\\App2\\App2\\App2.Android\\App2.Android.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\777\\.nuget\\packages\\google.apis\\1.56.0\\google.apis.1.56.0.nupkg.sha512",
     "C:\\Users\\777\\.nuget\\packages\\google.apis.auth\\1.56.0\\google.apis.auth.1.56.0.nupkg.sha512",

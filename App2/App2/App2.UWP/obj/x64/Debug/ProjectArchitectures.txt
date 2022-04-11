@@ -1,1 +1,1 @@
-C:\Users\777\source\repos\App2\App2\App2.UWP\App2.UWP.csproj;x64
+C:\Users\777\source\repos\newrepos\App2\App2\App2.UWP\App2.UWP.csproj;x64
