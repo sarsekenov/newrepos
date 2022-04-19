@@ -15,7 +15,7 @@ namespace WebApplication2.Controllers
 {
     public class FoldersController : ApiController
     {
-        private FolderContext db = new FolderContext();
+        public static FolderContext db = new FolderContext();
 
         // GET: api/Folders
         public IQueryable<Folder> GetFolders()

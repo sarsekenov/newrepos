@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\777\source\repos\newrepos\App2\App2\App2.UWP\bin\x64\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>1B903F0C61E93DA301C59C75FF3037AE1F77AF8E7C281E498D163095524E6782</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>BF0BF8234B3CFC02C992498A96257182D3789CD02AE11823AC2605029BEF0DD9</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>4938A853-F4B0-4345-B782-10D25AE4715A_1.0.0.0_x64__qmppmqwwx9mw0</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>4938A853-F4B0-4345-B782-10D25AE4715A_qmppmqwwx9mw0!App</RegisteredUserModeAppID>
     <RegisteredPackageID>4938A853-F4B0-4345-B782-10D25AE4715A</RegisteredPackageID>
@@ -30,33 +30,13 @@
     <AppXManifest Include="C:\Users\777\source\repos\newrepos\App2\App2\App2.UWP\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-03-28T08:50:06.356</Modified>
+      <Modified>2022-04-19T11:25:04.511</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\777\source\repos\newrepos\App2\App2\App2.UWP\bin\x64\Debug\App2.UWP.exe">
       <PackagePath>entrypoint\App2.UWP.exe</PackagePath>
-      <Modified>2022-03-28T08:50:04.023</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\777\.nuget\packages\google.apis\1.56.0\lib\netstandard2.0\Google.Apis.dll">
-      <PackagePath>Google.Apis.dll</PackagePath>
-      <Modified>2022-02-18T09:49:34.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\777\.nuget\packages\google.apis.auth\1.56.0\lib\netstandard2.0\Google.Apis.Auth.PlatformServices.dll">
-      <PackagePath>Google.Apis.Auth.PlatformServices.dll</PackagePath>
-      <Modified>2022-02-18T09:49:40.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\777\.nuget\packages\google.apis.auth\1.56.0\lib\netstandard2.0\Google.Apis.Auth.dll">
-      <PackagePath>Google.Apis.Auth.dll</PackagePath>
-      <Modified>2022-02-18T09:49:36.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\777\.nuget\packages\google.apis.core\1.56.0\lib\netstandard2.0\Google.Apis.Core.dll">
-      <PackagePath>Google.Apis.Core.dll</PackagePath>
-      <Modified>2022-02-18T09:49:34.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\777\.nuget\packages\newtonsoft.json\13.0.1\lib\netstandard2.0\Newtonsoft.Json.dll">
-      <PackagePath>Newtonsoft.Json.dll</PackagePath>
-      <Modified>2021-03-17T20:03:36.000</Modified>
+      <Modified>2022-04-19T11:25:02.759</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\777\.nuget\packages\runtime.win10-x64.microsoft.netcore.universalwindowsplatform\6.2.12\runtimes\win10-x64\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
@@ -82,9 +62,9 @@
       <PackagePath>SQLitePCLRaw.provider.e_sqlite3.dll</PackagePath>
       <Modified>2020-09-03T17:13:06.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\777\.nuget\packages\system.runtime.compilerservices.unsafe\4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll">
+    <AppxPackagedFile Include="C:\Users\777\.nuget\packages\system.runtime.compilerservices.unsafe\4.5.3\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll">
       <PackagePath>System.Runtime.CompilerServices.Unsafe.dll</PackagePath>
-      <Modified>2018-09-18T19:38:10.000</Modified>
+      <Modified>2020-02-19T10:05:16.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\777\.nuget\packages\win2d.uwp\1.20.0\runtimes\win10-x64\native\Microsoft.Graphics.Canvas.dll">
       <PackagePath>Microsoft.Graphics.Canvas.dll</PackagePath>
@@ -93,6 +73,10 @@
     <AppxPackagedFile Include="C:\Users\777\.nuget\packages\xamarin.auth\1.7.0\lib\uap10.0\Xamarin.Auth.dll">
       <PackagePath>Xamarin.Auth.dll</PackagePath>
       <Modified>2019-06-28T17:25:48.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\777\.nuget\packages\xamarin.communitytoolkit\1.3.2\lib\netstandard2.0\Xamarin.CommunityToolkit.dll">
+      <PackagePath>Xamarin.CommunityToolkit.dll</PackagePath>
+      <Modified>2022-01-11T19:16:46.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\777\.nuget\packages\xamarin.essentials\1.7.0\lib\uap10.0.16299\Xamarin.Essentials.dll">
       <PackagePath>Xamarin.Essentials.dll</PackagePath>
@@ -116,7 +100,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\777\source\repos\newrepos\App2\App2\App2\bin\Debug\netstandard2.0\App2.dll">
       <PackagePath>App2.dll</PackagePath>
-      <Modified>2022-03-28T08:49:59.928</Modified>
+      <Modified>2022-04-19T11:24:58.225</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\777\.nuget\packages\win2d.uwp\1.20.0\lib\uap10.0\Microsoft.Graphics.Canvas.winmd">
       <PackagePath>Microsoft.Graphics.Canvas.winmd</PackagePath>
@@ -291,11 +275,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\777\source\repos\newrepos\App2\App2\App2.UWP\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2022-03-28T08:50:03.961</Modified>
+      <Modified>2022-04-19T11:25:02.700</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\777\source\repos\newrepos\App2\App2\App2.UWP\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2022-03-28T08:50:03.962</Modified>
+      <Modified>2022-04-19T11:25:02.700</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.19041.0\\redist\Debug\X64\ucrtbased.dll">
       <PackagePath>ucrtbased.dll</PackagePath>
@@ -311,11 +295,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\777\source\repos\newrepos\App2\App2\App2.UWP\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2022-03-28T08:50:04.516</Modified>
+      <Modified>2022-04-19T11:25:03.101</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\777\source\repos\newrepos\App2\App2\App2.UWP\bin\x64\Debug\Core\App2.UWP.exe">
       <PackagePath>App2.UWP.exe</PackagePath>
-      <Modified>2022-03-28T08:50:06.346</Modified>
+      <Modified>2022-04-19T11:25:04.506</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

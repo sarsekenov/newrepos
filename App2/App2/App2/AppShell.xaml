@@ -84,5 +84,7 @@
     <FlyoutItem Title="Статистика" Icon="icon_about.png">
         <ShellContent Route="StatisticsPage" ContentTemplate="{DataTemplate local:StatisticsPage}" />
     </FlyoutItem>
+    <MenuItem Text="Logout">
 
+    </MenuItem>
 </Shell>

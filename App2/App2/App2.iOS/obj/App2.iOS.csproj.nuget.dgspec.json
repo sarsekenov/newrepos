@@ -105,10 +105,6 @@
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
           "dependencies": {
-            "Google.Apis.Auth": {
-              "target": "Package",
-              "version": "[1.56.0, )"
-            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",
@@ -118,6 +114,10 @@
             "Xamarin.Auth": {
               "target": "Package",
               "version": "[1.7.0, )"
+            },
+            "Xamarin.CommunityToolkit": {
+              "target": "Package",
+              "version": "[1.3.2, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",

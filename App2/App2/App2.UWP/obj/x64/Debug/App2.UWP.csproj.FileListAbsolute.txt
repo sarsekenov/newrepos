@@ -79,14 +79,6 @@ C:\Users\777\source\repos\newrepos\App2\App2\App2.UWP\bin\x64\Debug\AppxManifest
 C:\Users\777\source\repos\newrepos\App2\App2\App2.UWP\bin\x64\Debug\Core\App2.UWP.exe
 C:\Users\777\source\repos\newrepos\App2\App2\App2.UWP\bin\x64\Debug\Core\AppxManifest.xml
 C:\Users\777\source\repos\newrepos\App2\App2\App2.UWP\bin\x64\Debug\App2.UWP.build.appxrecipe
-C:\Users\777\source\repos\newrepos\App2\App2\App2.UWP\bin\x64\Debug\Google.Apis.dll
-C:\Users\777\source\repos\newrepos\App2\App2\App2.UWP\bin\x64\Debug\Google.Apis.pdb
-C:\Users\777\source\repos\newrepos\App2\App2\App2.UWP\bin\x64\Debug\Google.Apis.Auth.PlatformServices.dll
-C:\Users\777\source\repos\newrepos\App2\App2\App2.UWP\bin\x64\Debug\Google.Apis.Auth.dll
-C:\Users\777\source\repos\newrepos\App2\App2\App2.UWP\bin\x64\Debug\Google.Apis.Auth.pdb
-C:\Users\777\source\repos\newrepos\App2\App2\App2.UWP\bin\x64\Debug\Google.Apis.Core.dll
-C:\Users\777\source\repos\newrepos\App2\App2\App2.UWP\bin\x64\Debug\Google.Apis.Core.pdb
-C:\Users\777\source\repos\newrepos\App2\App2\App2.UWP\bin\x64\Debug\Newtonsoft.Json.dll
 C:\Users\777\source\repos\newrepos\App2\App2\App2.UWP\bin\x64\Debug\System.Runtime.dll
 C:\Users\777\source\repos\newrepos\App2\App2\App2.UWP\bin\x64\Debug\SQLite-net.dll
 C:\Users\777\source\repos\newrepos\App2\App2\App2.UWP\bin\x64\Debug\SQLitePCLRaw.batteries_v2.dll
@@ -148,3 +140,4 @@ C:\Users\777\source\repos\newrepos\App2\App2\App2.UWP\obj\x64\Debug\MultipleQual
 C:\Users\777\source\repos\newrepos\App2\App2\App2.UWP\obj\x64\Debug\ProjectArchitectures.txt
 C:\Users\777\source\repos\newrepos\App2\App2\App2.UWP\obj\x64\Debug\.winmd_cache\$Microsoft.Graphics.Canvas.winmd_636160715180000000.json
 C:\Users\777\source\repos\newrepos\App2\App2\App2.UWP\obj\x64\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_637424707200000000.json
+C:\Users\777\source\repos\newrepos\App2\App2\App2.UWP\bin\x64\Debug\Xamarin.CommunityToolkit.dll
