@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Diplomapp.Views.MainPage"
+             xmlns:viewmodel="clr-namespace:Diplomapp.ViewModels"
+             xmlns:mvvm="clr-namespace:MvvmHelpers;assembly=MvvmHelpers"
+             xmlns:model="clr-namespace:Diplomapp.Models" xmlns:extensions="http://xamarin.com/schemas/2020/toolkit"
+             x:DataType="viewmodel:MainPageViewModel"
+             Shell.FlyoutBehavior ="Flyout"
+             
+             >
+    <ContentPage.BindingContext>
+        <viewmodel:MainPageViewModel>
+        </viewmodel:MainPageViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add"   Clicked="ToolbarItem_Clicked"> </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ListView HasUnevenRows="True" 
+                  CachingStrategy="RecycleElement"
+                  ItemsSource = "{Binding ProjectGroups}"
+                  BackgroundColor="Transparent" 
+                  IsGroupingEnabled="True" 
+                  GroupDisplayBinding="{Binding Key}"
+                  SeparatorVisibility="None" 
+                  IsPullToRefreshEnabled="True" 
+                  ItemTapped ="ListView_ItemTapped"
+                  ItemSelected="ListView_ItemSelected"
+                  >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell x:DataType="model:Project" >
+                        <ViewCell.ContextActions>
+                            <MenuItem Text = " favorite "  />
+                            <MenuItem Text = " Delete " />
+                        </ViewCell.ContextActions>
+                        <StackLayout Padding="10" BackgroundColor="Aqua" >
+                            <Label  Text="{Binding Name}"/>
+                            <Label Margin="10,10,0,0" Text="{Binding CompanyId}"/>
+                            <Label Margin="10,10,0,0" Text="{Binding Id}"/>
+                            <!--<extensions:Expander >
+                                <extensions:Expander.Header >
+                                    <Label  Text="{Binding Name}"/>
+                                </extensions:Expander.Header>
+                                <extensions:Expander.Content>
+                                    <Frame>
+                                        <StackLayout Padding="10">
+                                            <Label Margin="10,10,0,0" Text="{Binding CompanyId}"/>
+                                            <Label Margin="10,10,0,0" Text="{Binding Id}"/>
+                                        </StackLayout>
+                                    </Frame>
+                                </extensions:Expander.Content>
+                            </extensions:Expander>-->
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.Footer>
+                <Button Command = "{Binding GetCompanies}" Text="Click">
+                </Button>
+            </ListView.Footer>
+        </ListView>
+        
+    </ContentPage.Content>
+</ContentPage>

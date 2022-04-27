@@ -207,13 +207,31 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CompaniesController.cs" />
+    <Compile Include="Controllers\CompanyMembersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProblemChecklistsController.cs" />
+    <Compile Include="Controllers\ProblemCommentsController.cs" />
+    <Compile Include="Controllers\ProblemMembersController.cs" />
+    <Compile Include="Controllers\ProblemsController.cs" />
+    <Compile Include="Controllers\ProjectMembersController.cs" />
+    <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Data\CompanyContext.cs" />
+    <Compile Include="Data\CompanyMemberContext.cs" />
+    <Compile Include="Data\ProblemChecklistContext.cs" />
+    <Compile Include="Data\ProblemCommentContext.cs" />
+    <Compile Include="Data\ProblemContext.cs" />
+    <Compile Include="Data\ProblemMemberContext.cs" />
+    <Compile Include="Data\ProjectContext.cs" />
+    <Compile Include="Data\ProjectMemberContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ProblemComment.cs" />
+    <Compile Include="Models\ProblemChecklist.cs" />
     <Compile Include="Models\ProjectMember.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Models\Company.cs" />
@@ -256,6 +274,7 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <None Include="Properties\PublishProfiles\WebApplication120220422170733 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -284,7 +303,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Data\" />
     <Folder Include="Views\Companies\" />
   </ItemGroup>
   <ItemGroup>
@@ -334,11 +352,10 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53458</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44314/</IISUrl>
+          <IISUrl>http://localhost:44314/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl>http://localhost:44314</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

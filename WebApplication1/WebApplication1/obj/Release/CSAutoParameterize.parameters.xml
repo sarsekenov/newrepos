@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Строка подключения в web.config, используемая приложением для доступа к базе данных." defaultValue="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-WebApplication1-20220405044901.mdf;Initial Catalog=aspnet-WebApplication1-20220405044901;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\777\\source\\repos\\newrepos\\WebApplication1\\WebApplication1\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="CompanyContext-Web.config Connection String" description="CompanyContext Строка подключения в web.config, используемая приложением для доступа к базе данных." defaultValue="Data Source=(localdb)\MSSQLLocalDB; Initial Catalog=CompanyContext-20220413110118; Integrated Security=True; MultipleActiveResultSets=True; AttachDbFilename=|DataDirectory|CompanyContext-20220413110118.mdf" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\777\\source\\repos\\newrepos\\WebApplication1\\WebApplication1\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CompanyContext']/@connectionString" />
+  </parameter>
+</parameters>

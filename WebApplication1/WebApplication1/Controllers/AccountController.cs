@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Security.Claims;
 using System.Security.Cryptography;
@@ -74,6 +75,18 @@ namespace WebApplication1.Controllers
             return Ok();
         }
 
+        [Route("GetUsers")]
+        public List<ApplicationUser> GetUsers()
+        {
+
+            return UserManager.Users.ToList();
+
+        }
+        [Route("GetId")]
+        public string GetId() 
+        {
+            return User.Identity.GetUserId();
+        }
         // GET api/Account/ManageInfo?returnUrl=%2F&generateState=true
         [Route("ManageInfo")]
         public async Task<ManageInfoViewModel> GetManageInfo(string returnUrl, bool generateState = false)
