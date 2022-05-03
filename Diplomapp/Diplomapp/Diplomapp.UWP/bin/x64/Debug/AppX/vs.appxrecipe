@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp.UWP\bin\x64\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>2D6B01CCAC20432620E21EDA66F9453BD4F2EF849C24225FFAF5CC411797DD20</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>D018093DAD3C5170CE2EB12B5749B1A64EE1CD71F1667888EE3F812DA201E48D</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>85FF2C59-23C9-427C-ACF9-6FEDAF5FBA9B_1.0.0.0_x64__r9dcca612tbk4</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>85FF2C59-23C9-427C-ACF9-6FEDAF5FBA9B_r9dcca612tbk4!App</RegisteredUserModeAppID>
     <RegisteredPackageID>85FF2C59-23C9-427C-ACF9-6FEDAF5FBA9B</RegisteredPackageID>
@@ -30,13 +30,25 @@
     <AppXManifest Include="C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp.UWP\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-04-26T08:10:44.861</Modified>
+      <Modified>2022-05-03T11:11:18.472</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp.UWP\bin\x64\Debug\Diplomapp.UWP.exe">
       <PackagePath>entrypoint\Diplomapp.UWP.exe</PackagePath>
-      <Modified>2022-04-26T08:10:43.705</Modified>
+      <Modified>2022-05-03T11:11:17.431</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\777\.nuget\packages\microcharts\0.9.5.9\lib\uap10.0\Microcharts.Uwp.dll">
+      <PackagePath>Microcharts.Uwp.dll</PackagePath>
+      <Modified>2020-10-18T22:45:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\777\.nuget\packages\microcharts\0.9.5.9\lib\uap10.0\Microcharts.dll">
+      <PackagePath>Microcharts.dll</PackagePath>
+      <Modified>2020-10-18T22:45:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\777\.nuget\packages\microcharts.forms\0.9.5.9\lib\netstandard2.0\Microcharts.Forms.dll">
+      <PackagePath>Microcharts.Forms.dll</PackagePath>
+      <Modified>2020-10-19T00:31:24.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\777\.nuget\packages\newtonsoft.json\13.0.1\lib\netstandard2.0\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
@@ -49,6 +61,34 @@
     <AppxPackagedFile Include="C:\Users\777\.nuget\packages\runtime.win10-x64.microsoft.netcore.universalwindowsplatform\6.2.12\runtimes\win10-x64\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
       <Modified>2021-02-05T01:15:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\777\.nuget\packages\skiasharp\2.80.2\runtimes\win10-x64\nativeassets\uap10.0\libEGL.dll">
+      <PackagePath>libEGL.dll</PackagePath>
+      <Modified>2020-09-11T08:53:26.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\777\.nuget\packages\skiasharp\2.80.2\runtimes\win10-x64\nativeassets\uap10.0\libGLESv2.dll">
+      <PackagePath>libGLESv2.dll</PackagePath>
+      <Modified>2020-09-11T08:53:38.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\777\.nuget\packages\skiasharp\2.80.2\runtimes\win10-x64\nativeassets\uap10.0\libSkiaSharp.dll">
+      <PackagePath>libSkiaSharp.dll</PackagePath>
+      <Modified>2020-09-11T08:53:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\777\.nuget\packages\skiasharp\2.80.2\lib\uap10.0.16299\SkiaSharp.dll">
+      <PackagePath>SkiaSharp.dll</PackagePath>
+      <Modified>2020-09-11T08:53:26.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\777\.nuget\packages\skiasharp.views\2.80.2\runtimes\win10-x64\nativeassets\uap10.0\SkiaSharp.Views.Interop.UWP.dll">
+      <PackagePath>SkiaSharp.Views.Interop.UWP.dll</PackagePath>
+      <Modified>2020-09-11T08:59:28.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\777\.nuget\packages\skiasharp.views\2.80.2\lib\uap10.0\SkiaSharp.Views.UWP.dll">
+      <PackagePath>SkiaSharp.Views.UWP.dll</PackagePath>
+      <Modified>2020-09-11T08:59:38.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\777\.nuget\packages\skiasharp.views.forms\2.80.2\lib\uap10.0\SkiaSharp.Views.Forms.dll">
+      <PackagePath>SkiaSharp.Views.Forms.dll</PackagePath>
+      <Modified>2020-09-11T09:07:14.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\777\.nuget\packages\system.runtime.compilerservices.unsafe\4.5.3\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll">
       <PackagePath>System.Runtime.CompilerServices.Unsafe.dll</PackagePath>
@@ -84,7 +124,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp\bin\Debug\netstandard2.0\Diplomapp.dll">
       <PackagePath>Diplomapp.dll</PackagePath>
-      <Modified>2022-04-26T08:10:39.809</Modified>
+      <Modified>2022-05-03T11:58:04.194</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\777\.nuget\packages\win2d.uwp\1.20.0\lib\uap10.0\Microsoft.Graphics.Canvas.winmd">
       <PackagePath>Microsoft.Graphics.Canvas.winmd</PackagePath>
@@ -255,11 +295,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp.UWP\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2022-04-26T08:10:43.658</Modified>
+      <Modified>2022-05-03T11:11:17.379</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp.UWP\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2022-04-26T08:10:43.658</Modified>
+      <Modified>2022-05-03T11:11:17.379</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.19041.0\\redist\Debug\X64\ucrtbased.dll">
       <PackagePath>ucrtbased.dll</PackagePath>
@@ -275,11 +315,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp.UWP\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2022-04-22T10:32:49.285</Modified>
+      <Modified>2022-05-03T11:04:26.951</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp.UWP\bin\x64\Debug\Core\Diplomapp.UWP.exe">
       <PackagePath>Diplomapp.UWP.exe</PackagePath>
-      <Modified>2022-04-26T08:10:44.846</Modified>
+      <Modified>2022-05-03T11:11:18.468</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

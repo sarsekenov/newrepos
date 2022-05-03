@@ -4,30 +4,43 @@
              x:Class="Diplomapp.Views.MainPage"
              xmlns:viewmodel="clr-namespace:Diplomapp.ViewModels"
              xmlns:mvvm="clr-namespace:MvvmHelpers;assembly=MvvmHelpers"
-             xmlns:model="clr-namespace:Diplomapp.Models" xmlns:extensions="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:model="clr-namespace:Diplomapp.Models"
+             xmlns:extensions="http://xamarin.com/schemas/2020/toolkit"
              x:DataType="viewmodel:MainPageViewModel"
              Shell.FlyoutBehavior ="Flyout"
-             
              >
     <ContentPage.BindingContext>
         <viewmodel:MainPageViewModel>
         </viewmodel:MainPageViewModel>
     </ContentPage.BindingContext>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add"   Clicked="ToolbarItem_Clicked"> </ToolbarItem>
+        <ToolbarItem Text="Add Project"   Clicked = "ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
-    <ContentPage.Content>
+    <ContentPage.Content >
         <ListView HasUnevenRows="True" 
                   CachingStrategy="RecycleElement"
                   ItemsSource = "{Binding ProjectGroups}"
                   BackgroundColor="Transparent" 
                   IsGroupingEnabled="True" 
-                  GroupDisplayBinding="{Binding Key}"
                   SeparatorVisibility="None" 
                   IsPullToRefreshEnabled="True" 
                   ItemTapped ="ListView_ItemTapped"
                   ItemSelected="ListView_ItemSelected"
+                  RefreshCommand="{Binding command}"
                   >
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate x:DataType = "{x:Null}">
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" >
+                            <Label  Text="{Binding Key}" Margin="15,0,0,0"/>
+                            <Button Text="Add Project" 
+                                    BindingContext="{Binding Key}" 
+                                    HorizontalOptions="EndAndExpand" 
+                                    Clicked="Button_Clicked"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell x:DataType="model:Project" >
@@ -35,30 +48,22 @@
                             <MenuItem Text = " favorite "  />
                             <MenuItem Text = " Delete " />
                         </ViewCell.ContextActions>
-                        <StackLayout Padding="10" BackgroundColor="Aqua" >
-                            <Label  Text="{Binding Name}"/>
-                            <Label Margin="10,10,0,0" Text="{Binding CompanyId}"/>
-                            <Label Margin="10,10,0,0" Text="{Binding Id}"/>
-                            <!--<extensions:Expander >
-                                <extensions:Expander.Header >
+                        <StackLayout>
+                            <Frame  CornerRadius="20" BorderColor="Gray" Margin="10,5,10,5" >
+                                <StackLayout>
                                     <Label  Text="{Binding Name}"/>
-                                </extensions:Expander.Header>
-                                <extensions:Expander.Content>
-                                    <Frame>
-                                        <StackLayout Padding="10">
-                                            <Label Margin="10,10,0,0" Text="{Binding CompanyId}"/>
-                                            <Label Margin="10,10,0,0" Text="{Binding Id}"/>
-                                        </StackLayout>
-                                    </Frame>
-                                </extensions:Expander.Content>
-                            </extensions:Expander>-->
+                                    <Label Margin="10,10,0,0" Text="{Binding Id}"/>
+                                </StackLayout>
+                            </Frame>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
             <ListView.Footer>
-                <Button Command = "{Binding GetCompanies}" Text="Click">
-                </Button>
+                <StackLayout>
+                    <Button Command = "{Binding command}" Text="Click"/>
+                    <Button Command = "{Binding GetAllUsers}" Text="GetUsers"/>
+                </StackLayout>
             </ListView.Footer>
         </ListView>
         

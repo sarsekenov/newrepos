@@ -143,3 +143,13 @@ C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp.UWP\obj\x64\Deb
 C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp.UWP\obj\x64\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_637424707200000000.json
 C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp.UWP\bin\x64\Debug\MvvmHelpers.dll
 C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp.UWP\bin\x64\Debug\MvvmHelpers.pdb
+C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp.UWP\bin\x64\Debug\Microcharts.Uwp.dll
+C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp.UWP\bin\x64\Debug\Microcharts.dll
+C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp.UWP\bin\x64\Debug\Microcharts.Forms.dll
+C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp.UWP\bin\x64\Debug\libEGL.dll
+C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp.UWP\bin\x64\Debug\libGLESv2.dll
+C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp.UWP\bin\x64\Debug\libSkiaSharp.dll
+C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp.UWP\bin\x64\Debug\SkiaSharp.dll
+C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp.UWP\bin\x64\Debug\SkiaSharp.Views.Interop.UWP.dll
+C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp.UWP\bin\x64\Debug\SkiaSharp.Views.UWP.dll
+C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp.UWP\bin\x64\Debug\SkiaSharp.Views.Forms.dll

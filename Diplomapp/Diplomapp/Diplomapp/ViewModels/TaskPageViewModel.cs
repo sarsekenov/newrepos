@@ -2,56 +2,32 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Diplomapp.Models;
-using Xamarin.CommunityToolkit.ObjectModel;
-using Xamarin.CommunityToolkit.UI.Views;
+using MvvmHelpers;
+using MvvmHelpers.Commands;
+using Newtonsoft.Json;
 using Xamarin.Forms; 
 namespace Diplomapp.ViewModels
 {
-    public class TaskPageViewModel : BindableObject
+    [QueryProperty(nameof(ProjName), "name")]
+    public class TaskPageViewModel : BaseViewModel
     {
-        public Expander[] expanders;
         public TaskPageViewModel()
         {
-            expanders = new Expander[4];
-            //Problems.AddRange(list);
+            Problems = new ObservableRangeCollection<Problem>{ };
+            getProblems = new AsyncCommand(getproblems);
         }
         public ObservableRangeCollection<Problem> Problems { get; }
-        private StackLayout stack = new StackLayout();
-        public StackLayout Stack { get =>stack;
-            set 
-            {
-                if (stack == value)
-                    return;
-                stack = value;
-                OnPropertyChanged();
-            } 
-        }
-        public List<Problem> list;
-        void Exp_Init() 
-        {
-            
-            list = new List<Problem>();
-            for(int i =0;i<expanders.Length;i++)
-            {
-                expanders[i] = new Expander { Header = new Label { Text = Name}, Content = new Label { Text = Caption} };
-                Stack.Children.Add(expanders[i]);
-            }
-        }
         
-        void OnCommand()
-        {
-            Name = "rexxton";
-        }
-        void OnCommand1() 
-        {
-            Caption = "SsanYong";
-        }
-        public ICommand command { get; }
+        public List<Problem> list;
+        public AsyncCommand getProblems;
+        
         private string name = String.Empty;
-        public string Name
+        public string ProjName
         {
             get => name;
             set
@@ -62,19 +38,25 @@ namespace Diplomapp.ViewModels
                 OnPropertyChanged();
             }
         }
-        private string caption= String.Empty;
-        public string Caption
+        public async Task getproblems() 
         {
-            get => caption;
-            set
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", App.accessToken);
+
+            var response = await client.GetStringAsync(App.localUrl + "api/ProblemMembers");
+            var companyMembers = JsonConvert.DeserializeObject<List<ProblemMember>>(response);
+            if (companyMembers.Count != 0)
             {
-                if (value == caption)
-                    return;
-                caption = value;
-                OnPropertyChanged();
+                foreach (ProblemMember i in companyMembers)
+                {
+                    //var response2 = await client.GetStringAsync(App.localUrl + $"api/Companies/{i.TaskId}");
+                    //var company = JsonConvert.DeserializeObject<Problem>(response2);
+                    //Problems.Add(company);
+                }
             }
+
         }
-        public ICommand command1 { get; }
+        
 
     }
 }

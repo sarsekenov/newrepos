@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Diplomapp.Views.InvitesPage"
+             xmlns:viewmodel ="clr-namespace:Diplomapp.ViewModels"
+             xmlns:models="clr-namespace:Diplomapp.Models"
+             >
+    <ContentPage.BindingContext>
+        <viewmodel:InviteViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView 
+                RefreshCommand="{Binding command}"
+                 ItemsSource="{Binding Invites }">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Invite">
+                        <ViewCell>
+                            <Frame>
+                                <StackLayout>
+                                    <Label  Text="{Binding OwnerEmail}" />
+                                    <Label  Text="{Binding Invitation}" />
+                                    <Label  Text="{Binding ProjectName}" />
+
+                                </StackLayout>      
+                            </Frame>                      
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

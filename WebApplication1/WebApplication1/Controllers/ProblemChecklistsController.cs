@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -20,6 +21,7 @@ namespace WebApplication1.Controllers
         // GET: api/ProblemChecklists
         public IQueryable<ProblemChecklist> GetProblemChecklists()
         {
+            
             return db.ProblemChecklists;
         }
 
@@ -80,6 +82,7 @@ namespace WebApplication1.Controllers
                 return BadRequest(ModelState);
             }
 
+            
             db.ProblemChecklists.Add(problemChecklist);
             db.SaveChanges();
 

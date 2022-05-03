@@ -17,34 +17,84 @@ namespace Diplomapp.ViewModels
     {
         public MainPageViewModel()
         {
-            GetCompanies = new AsyncCommand(getCompanies);
-            companies = new ObservableRangeCollection<Company>() { new Company() { Id = 0,Name = "Diplom",OwnerId = "Diplomuser"} };
-            Projects = new ObservableRangeCollection<Project>{ new Project() { Name = "backend", Id = 0, CompanyId = 0}, new Project() { Name = "frontend",Id = 1,CompanyId = 0} };
-            ProjectGroups = new ObservableRangeCollection<Grouping<string, Project>>() { new Grouping<string, Project>(companies[0].Name, Projects.Where(c => c.CompanyId == companies[0].Id))};
+            GetMyProjects = new AsyncCommand(getMyProjects);
+            GetProjects = new AsyncCommand(getProjects);
+            Projects = new ObservableRangeCollection<Project>();
+            ProjectGroups = new ObservableRangeCollection<Grouping<string, Project>>();
+            GetAllUsers = new AsyncCommand(getAllUsers);
+            command = new AsyncCommand(getlist);
         }
 
-        public ObservableRangeCollection<Company> companies { get; set; }
-        public AsyncCommand GetCompanies { get; set; }
+        #region
+        //public AsyncCommand GetCompanies { get; set; }
         public AsyncCommand GetAllUsers { get; set; }
-        public AsyncCommand GetProjectMembers { get; set; }
+        public AsyncCommand GetProjects { get; set; }
+        public AsyncCommand GetMyProjects { get; set; }
 
         public ObservableRangeCollection<Project> Projects { get; set; }
+        public ObservableRangeCollection<Project> MyProjects { get; set; }
         public ObservableRangeCollection<Grouping<string, Project>> ProjectGroups { get; set; }
-        public async Task getCompanies() // получить все компании пользователя 
+        #endregion
+        public async Task getlist()
         {
-            var client = new HttpClient();
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", App.accessToken);
-            var response = await client.GetStringAsync(App.localUrl + "api/Companies");
-            var companyMembers = JsonConvert.DeserializeObject<List<CompanyMember>>(response);
-            //json = JsonConvert.SerializeObject(new CompanyMember() { CompanyId = newres.Id, UserId = newres.OwnerId, Role = "Admin" });
-            foreach (CompanyMember i in companyMembers)
+            Parallel.Invoke(
+                async ()=>
+                { 
+                    await GetMyProjects.ExecuteAsync();
+                    if (MyProjects != null) 
+                    { 
+                        ProjectGroups.Add(new Grouping<string, Project>("MyProjects'", MyProjects));
+                    }
+                },
+                async () => 
+                { 
+                    await GetProjects.ExecuteAsync();
+                    if (Projects != null) 
+                    {
+                        ProjectGroups.Add(new Grouping<string, Project>("Projects", Projects));  
+                    }
+                    
+                });
+        }
+        public async Task getMyProjects() // получить все компании пользователя 
+        {
+            using (App.client = new HttpClient())
             {
-                var response2 = await client.GetStringAsync(App.localUrl + $"api/Companies/{i.CompanyId}");
-                var company = JsonConvert.DeserializeObject<Company>(response2);
-                companies.Add(company);
+                App.client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", App.accessToken);
+
+                var response = await App.client.GetStringAsync(App.localUrl + "api/Projects");
+                if (response != null) 
+                {
+                     var projects = JsonConvert.DeserializeObject<List<Project>>(response);
+                    if(projects.Count != 0) {
+                    MyProjects.AddRange(projects); }
+                }
+            }
+        } 
+        public async Task getProjects()
+        {
+            using(App.client = new HttpClient()) 
+            { 
+                App.client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", App.accessToken);
+
+                var json = await  App.client.GetStringAsync(App.localUrl + "api/ProjectMembers");
+                
+                var members = JsonConvert.DeserializeObject<List<ProjectMember>>(json);
+
+                foreach (var member in members) 
+                {
+                    json = null;
+                    json = await App.client.GetStringAsync(App.localUrl + $"api/Projects{member.ProjectID}");
+                    var projects = JsonConvert.DeserializeObject<Project>(json);
+                    if(projects != null) { 
+                    Projects.Add(projects);}
+                }
             }
         }
-        internal  class user
+        public AsyncCommand command { get; set; }
+        //users
+        #region
+        internal class user
         {
             [JsonProperty("Email")]
             public string Email { get; set; }
@@ -52,52 +102,21 @@ namespace Diplomapp.ViewModels
             public string Id { get; set; }
             [JsonProperty("UserName")]
             public string UserName { get; set; }
-            [JsonProperty("PhoneNumber")]
-            public long PhoneNumber { get; set; }
+            /*[JsonProperty("PhoneNumber")]
+            public long PhoneNumber { get; set; }*/
         }//класс юзеров
-        public async Task getAllUsers(string accessToken) // команда получения всех юзеров 
+        public async Task getAllUsers() // команда получения всех юзеров 
         {
             var client = new HttpClient();
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", App.accessToken);
 
             var json = await client.GetStringAsync(App.localUrl + "api/Account/GetUsers");
 
             var users = JsonConvert.DeserializeObject<List<user>>(json);
         }
-        public async Task getProjectMembers()
-        {
-            var client = new HttpClient();
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", App.accessToken);
+        #endregion
+       
 
-            var json = await client.GetStringAsync(App.localUrl + "api/ProjectMembers");
-
-            var members = JsonConvert.DeserializeObject<List<ProjectMember>>(json);
-            json = null;
-            json = await client.GetStringAsync(App.localUrl + "api/Projects");
-            var projects = JsonConvert.DeserializeObject<List<Project>>(json);
-            //Projects.AddRange(projects.Where(c => c.Id == members));
-            foreach (var i in projects) 
-            {
-                foreach (var j in members) 
-                {
-                    if (i.Id == j.ProjectId) 
-                    { 
-                        Projects.Add(i);
-                    }
-                }
-            }
-            foreach (var i in companies) 
-            {
-                foreach (var j in Projects)
-                {
-                    if (i.Id == j.CompanyId) 
-                    {
-                        ProjectGroups.Add(new Grouping<string, Project>(i.Name,(IEnumerable<Project>)j));
-                    }
-                }
-            }
-        }
-
-        
     }
+    
 }

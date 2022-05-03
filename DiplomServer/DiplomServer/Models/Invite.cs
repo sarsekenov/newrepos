@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace DiplomServer.Models
+{
+    public class Invite
+    {
+        public int Id { get; set; }
+        public string ProjectName { get; set; }
+        public int Projectid { get; set; }
+        public string OwnerEmail { get; set; }
+        public string Invitation { get; set; }
+        public string Userid { get; set; }
+    }
+}

@@ -59,3 +59,6 @@ C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp\obj\Debug\netst
 C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp\obj\Debug\netstandard2.0\refint\Diplomapp.dll
 C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp\obj\Debug\netstandard2.0\Diplomapp.pdb
 C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp\obj\Debug\netstandard2.0\ref\Diplomapp.dll
+C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp\obj\Debug\netstandard2.0\Views\TaskDetailPage.xaml.g.cs
+C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp\obj\Debug\netstandard2.0\Views\InvitesPage.xaml.g.cs
+C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp\obj\Debug\netstandard2.0\Views\ProjectPage.xaml.g.cs

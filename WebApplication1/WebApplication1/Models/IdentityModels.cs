@@ -13,9 +13,14 @@ namespace WebApplication1.Models
         {
             // Обратите внимание, что authenticationType должен совпадать с типом, определенным в CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, authenticationType);
+            
             // Здесь добавьте утверждения пользователя
             return userIdentity;
         }
+        /*public async Task SetRole(UserManager<ApplicationUser> manager, string userid, string Role) 
+        {
+            await  manager.AddToRoleAsync(userid,Role);
+        }*/
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -23,6 +28,7 @@ namespace WebApplication1.Models
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+
         }
         
         public static ApplicationDbContext Create()

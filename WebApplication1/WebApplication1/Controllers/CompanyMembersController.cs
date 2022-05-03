@@ -21,7 +21,8 @@ namespace WebApplication1.Controllers
         // GET: api/CompanyMembers
         public IQueryable<CompanyMember> GetCompanyMembers()
         {
-            return db.CompanyMembers.Where(CompanyMember => CompanyMember.UserId == User.Identity.GetUserId());
+            string userid = User.Identity.GetUserId();
+            return db.CompanyMembers.Where(CompanyMember => CompanyMember.UserId == userid);
 
         }
 

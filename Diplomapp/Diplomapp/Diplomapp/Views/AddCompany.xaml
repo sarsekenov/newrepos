@@ -2,13 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Diplomapp.Views.AddCompany"
-             Shell.FlyoutBehavior="Flyout"
-             Shell.PresentationMode="Modal"
              >
     <ContentPage.Content>
-        <StackLayout VerticalOptions="CenterAndExpand">
-            <Entry Placeholder =" Type the Name of your WorkingSpace" x:Name="NameCompany" />
-            <Button Text = "Save" Clicked="Button_Clicked" />
+        <StackLayout VerticalOptions="CenterAndExpand" Padding="10" >
+            <Entry Placeholder =" Type the Name of your WorkingSpace" x:Name="NameProject" />
+            <Entry Placeholder = "Type Description" x:Name= "DescriptionProject"  />
+            <Button Text = "Save" Clicked="Button_Clicked" CornerRadius="8"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

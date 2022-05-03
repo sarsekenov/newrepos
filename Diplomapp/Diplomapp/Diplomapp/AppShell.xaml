@@ -78,23 +78,25 @@
         FlyoutDisplayOptions="AsMultipleItems" will create a separate flyout item for each child element    
         https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
     -->
-
-    <ShellItem Route="MainPage" FlyoutItemIsVisible="True"  Title="Главное" >
-        <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
-    </ShellItem>
+    
     <ShellItem Route="LoginPage" FlyoutItemIsVisible="False" >
         <ShellContent ContentTemplate="{DataTemplate local:LoginPage}"/>
-
     </ShellItem>
-    <FlyoutItem Title="Задачи" Icon="icon_about.png">
+    <ShellItem Route="MainPage" FlyoutItemIsVisible="True"  Title="Проекты" >
+        <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
+    </ShellItem>
+    <FlyoutItem Title="Задачи">
         <ShellContent Route="TaskPage" ContentTemplate="{DataTemplate local:TaskPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Статистика" Icon="icon_about.png">
+    <FlyoutItem Title="Приглашения">
+        <ShellContent Route="InvitesPage" ContentTemplate="{DataTemplate local:InvitesPage}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Статистика" >
         <ShellContent Route="StatisticsPage" ContentTemplate="{DataTemplate local:StatisticsPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Logout" >
-        <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
-    </FlyoutItem>
+    <MenuItem Text="Выйти"  Clicked = "MenuItem_Clicked"  >
+    </MenuItem>
+        <!--<ShellContent  Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />-->
     <!--
         TabBar lets you define content that won't show up in a flyout menu. When this content is active
         the flyout menu won't be available. This is useful for creating areas of the application where 

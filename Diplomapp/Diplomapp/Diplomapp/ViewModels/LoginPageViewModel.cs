@@ -1,10 +1,12 @@
 ﻿using Diplomapp.Views;
+using MvvmHelpers.Commands;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Diplomapp.ViewModels
@@ -13,8 +15,8 @@ namespace Diplomapp.ViewModels
     {
         public LoginPageViewModel()
         {
-            register = new Command(Registeraction);
-            login = new Command(Login); 
+            register = new AsyncCommand(Registeraction);
+            login = new AsyncCommand(Login); 
         }
         string username;
         string password;
@@ -37,14 +39,27 @@ namespace Diplomapp.ViewModels
                 OnPropertyChanged();
             }
         }
-        public Command login { get; set; }
-        public Command register { get; set; }
-        void Registeraction() 
+        public AsyncCommand login { get; set; }
+        public AsyncCommand register { get; set; }
+        async Task Registeraction() 
         {
             Shell.Current.GoToAsync(nameof(RegisterPage));
         }
+        internal class Token
+            {
+                [JsonProperty("access_token")]
+                public string AccessToken { get; set; }
 
-        async void Login()
+                [JsonProperty("token_type")]
+                public string TokenType { get; set; }
+
+                [JsonProperty("expires_in")]
+                public int ExpiresIn { get; set; }
+
+                [JsonProperty("refresh_token")]
+                public string RefreshToken { get; set; }
+            }
+        async Task Login()
         {
             var keyValues = new List<KeyValuePair<string, string>>()
             {
@@ -58,34 +73,27 @@ namespace Diplomapp.ViewModels
 
             var client = new HttpClient();
             var response = await client.SendAsync(request);
-
             var content = await response.Content.ReadAsStringAsync();
-            var pairs = JsonConvert.DeserializeObject<Token>(content);
-
-            if (pairs.AccessToken != null)
+            try
             {
-                App.accessToken = pairs.AccessToken;
-                await Shell.Current.GoToAsync($"/{nameof(MainPage)}");
+                var pairs = JsonConvert.DeserializeObject<Token>(content);
+                if (pairs.AccessToken != null)
+                {
+                    App.accessToken = pairs.AccessToken;
+                    await Shell.Current.GoToAsync($"///{nameof(MainPage)}");
+                }
+                else 
+                {
+                    await Application.Current.MainPage.DisplayAlert("Error ", "No user with this username and password","Ok");
+                }
             }
-            else 
+            catch 
             {
-                await Application.Current.MainPage.DisplayAlert("Error ", "No user with this username and password","Ok");
+                await Application.Current.MainPage.DisplayAlert("Error ", "Server isnt working", "Ok");
             }
+            
         }
 
     }
-    internal class Token
-    {
-        [JsonProperty("access_token")]
-        public string AccessToken { get; set; }
-
-        [JsonProperty("token_type")]
-        public string TokenType { get; set; }
-
-        [JsonProperty("expires_in")]
-        public int ExpiresIn { get; set; }
-
-        [JsonProperty("refresh_token")]
-        public string RefreshToken { get; set; }
-    }
+    
 }

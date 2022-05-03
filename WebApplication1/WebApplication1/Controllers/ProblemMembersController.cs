@@ -22,7 +22,7 @@ namespace WebApplication1.Controllers
         public IQueryable<ProblemMember> GetProblemMembers()
         {
             string userId = User.Identity.GetUserId();
-            return db.ProblemMembers;
+            return db.ProblemMembers.Where(c=>c.UserId ==userId);
         }
 
         // GET: api/ProblemMembers/5

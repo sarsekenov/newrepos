@@ -29,7 +29,9 @@ namespace WebApplication1.Controllers
 
         public AccountController()
         {
+            
         }
+
 
         public AccountController(ApplicationUserManager userManager,
             ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
@@ -38,11 +40,15 @@ namespace WebApplication1.Controllers
             AccessTokenFormat = accessTokenFormat;
         }
 
+        //public RoleManager<IdentityRole> roleman = RoleManager<IdentityRole>(new RoleStore<IdentityRole>());
         public ApplicationUserManager UserManager
         {
+
             get
             {
+
                 return _userManager ?? Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
+
             }
             private set
             {
@@ -74,7 +80,7 @@ namespace WebApplication1.Controllers
             Authentication.SignOut(CookieAuthenticationDefaults.AuthenticationType);
             return Ok();
         }
-
+        [AllowAnonymous]
         [Route("GetUsers")]
         public List<ApplicationUser> GetUsers()
         {
@@ -341,9 +347,15 @@ namespace WebApplication1.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
-
+            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email  };
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+
+            string id = UserManager.FindByEmailAsync(model.Email).Result.Id;
+            // .Create(Role1);
+            UserManager.AddToRole(id, model.Role); 
+            
+                
+            
 
             if (!result.Succeeded)
             {

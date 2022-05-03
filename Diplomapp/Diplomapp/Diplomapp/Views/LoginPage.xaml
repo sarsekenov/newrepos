@@ -8,18 +8,16 @@
              Shell.NavBarIsVisible="False"
              >
     <ContentPage.BindingContext>
-        <viewmodel:LoginPageViewModel>
-        </viewmodel:LoginPageViewModel>
+        <viewmodel:LoginPageViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout HorizontalOptions ="FillAndExpand" VerticalOptions="Center" Padding="30" >
-            <Label ></Label>
             <Entry Placeholder = "Type your email"  Text="{Binding Username}"/>
             <Entry IsPassword = "True" Placeholder=" Type Password" Text="{Binding Password}"/>
             <Button Text="Login" Command="{Binding login}"/>
             <Label Text="Register" HorizontalOptions="CenterAndExpand"  FontSize="Medium" >
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding register} "></TapGestureRecognizer>
+                    <TapGestureRecognizer Command="{Binding register} "/>
                 </Label.GestureRecognizers>
             </Label>
         </StackLayout>

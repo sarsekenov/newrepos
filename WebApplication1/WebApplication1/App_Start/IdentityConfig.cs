@@ -15,13 +15,18 @@ namespace WebApplication1
             : base(store)
         {
         }
-
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
         {
             var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<ApplicationDbContext>()));
+            var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context.Get<ApplicationDbContext>()));
             // Настройка логики проверки имен пользователей
+
+            var Role1 = new IdentityRole { Name = "krasavchik" };
+
+            RoleManager.CreateAsync(Role1);
             manager.UserValidator = new UserValidator<ApplicationUser>(manager)
             {
+                
                 AllowOnlyAlphanumericUserNames = false,
                 RequireUniqueEmail = true
             };
