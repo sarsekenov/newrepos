@@ -16,12 +16,13 @@
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="models:Invite">
                         <ViewCell>
-                            <Frame>
+                            <Frame CornerRadius="15">
                                 <StackLayout>
                                     <Label  Text="{Binding OwnerEmail}" />
                                     <Label  Text="{Binding Invitation}" />
                                     <Label  Text="{Binding ProjectName}" />
-
+                                    <Button Text="Принять"/>
+                                    <Button Text="Отказаться"/>
                                 </StackLayout>      
                             </Frame>                      
                         </ViewCell>

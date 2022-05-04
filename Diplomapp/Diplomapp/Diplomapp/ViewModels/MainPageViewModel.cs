@@ -20,6 +20,7 @@ namespace Diplomapp.ViewModels
             GetMyProjects = new AsyncCommand(getMyProjects);
             GetProjects = new AsyncCommand(getProjects);
             Projects = new ObservableRangeCollection<Project>();
+            MyProjects = new ObservableRangeCollection<Project>();
             ProjectGroups = new ObservableRangeCollection<Grouping<string, Project>>();
             GetAllUsers = new AsyncCommand(getAllUsers);
             command = new AsyncCommand(getlist);
@@ -41,15 +42,15 @@ namespace Diplomapp.ViewModels
                 async ()=>
                 { 
                     await GetMyProjects.ExecuteAsync();
-                    if (MyProjects != null) 
+                    if (MyProjects.Count != 0) 
                     { 
-                        ProjectGroups.Add(new Grouping<string, Project>("MyProjects'", MyProjects));
+                        ProjectGroups.Add(new Grouping<string, Project>("MyProjects", MyProjects));
                     }
                 },
                 async () => 
                 { 
                     await GetProjects.ExecuteAsync();
-                    if (Projects != null) 
+                    if (Projects.Count != 0) 
                     {
                         ProjectGroups.Add(new Grouping<string, Project>("Projects", Projects));  
                     }
@@ -80,15 +81,18 @@ namespace Diplomapp.ViewModels
                 var json = await  App.client.GetStringAsync(App.localUrl + "api/ProjectMembers");
                 
                 var members = JsonConvert.DeserializeObject<List<ProjectMember>>(json);
-
-                foreach (var member in members) 
+                if(members.Count != 0) 
                 {
-                    json = null;
-                    json = await App.client.GetStringAsync(App.localUrl + $"api/Projects{member.ProjectID}");
-                    var projects = JsonConvert.DeserializeObject<Project>(json);
-                    if(projects != null) { 
-                    Projects.Add(projects);}
+                    foreach (var member in members) 
+                    {
+                        json = null;
+                        json = await App.client.GetStringAsync(App.localUrl + $"api/Projects{member.ProjectID}");
+                        var projects = JsonConvert.DeserializeObject<Project>(json);
+                        if(projects != null) { 
+                        Projects.Add(projects);}
+                    } 
                 }
+                
             }
         }
         public AsyncCommand command { get; set; }

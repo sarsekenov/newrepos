@@ -19,7 +19,7 @@ namespace Diplomapp
             Routing.RegisterRoute(nameof(RegisterPage), typeof(RegisterPage));
             Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
             Routing.RegisterRoute(nameof(TaskPage), typeof(TaskPage));
-            //Routing.RegisterRoute(nameof(MainPage), typeof(MainPage));
+            Routing.RegisterRoute(nameof(ProjectPage), typeof(ProjectPage));
             Routing.RegisterRoute(nameof(AddCompany), typeof(AddCompany));
             Routing.RegisterRoute(nameof(TaskDetailPage), typeof(TaskDetailPage));
             Logout = new AsyncCommand(logout);
@@ -40,7 +40,7 @@ namespace Diplomapp
             var res = await client.SendAsync(request);
             if (res.StatusCode == HttpStatusCode.OK) 
             {
-                Shell.Current.GoToAsync(nameof(LoginPage));
+               await Shell.Current.GoToAsync(nameof(LoginPage));
             }
         }
 

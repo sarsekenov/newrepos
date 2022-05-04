@@ -14,7 +14,7 @@ namespace Diplomapp.Views {
     
     
     [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\ProjectPage.xaml")]
-    public partial class ProjectPage : global::Xamarin.Forms.ContentPage {
+    public partial class ProjectPage : global::Xamarin.Forms.TabbedPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {

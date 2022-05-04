@@ -14,16 +14,16 @@
         </viewmodel:MainPageViewModel>
     </ContentPage.BindingContext>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add Project"   Clicked = "ToolbarItem_Clicked"/>
+        <ToolbarItem Text="Создать проект"   Clicked = "ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content >
         <ListView HasUnevenRows="True" 
                   CachingStrategy="RecycleElement"
                   ItemsSource = "{Binding ProjectGroups}"
-                  BackgroundColor="Transparent" 
-                  IsGroupingEnabled="True" 
-                  SeparatorVisibility="None" 
-                  IsPullToRefreshEnabled="True" 
+                  BackgroundColor="Transparent"
+                  IsGroupingEnabled="True"
+                  SeparatorVisibility="None"
+                  IsPullToRefreshEnabled="True"
                   ItemTapped ="ListView_ItemTapped"
                   ItemSelected="ListView_ItemSelected"
                   RefreshCommand="{Binding command}"

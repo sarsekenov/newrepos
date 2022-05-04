@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace Diplomapp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ProjectPage : ContentPage
+    public partial class ProjectPage : TabbedPage
     {
         public ProjectPage()
         {
