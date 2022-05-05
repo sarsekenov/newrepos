@@ -17,13 +17,15 @@ namespace Diplomapp.ViewModels
     {
         public MainPageViewModel()
         {
+
             GetMyProjects = new AsyncCommand(getMyProjects);
             GetProjects = new AsyncCommand(getProjects);
             Projects = new ObservableRangeCollection<Project>();
             MyProjects = new ObservableRangeCollection<Project>();
             ProjectGroups = new ObservableRangeCollection<Grouping<string, Project>>();
-            GetAllUsers = new AsyncCommand(getAllUsers);
+            GetAllUsers = new AsyncCommand(getid);
             command = new AsyncCommand(getlist);
+            command.ExecuteAsync();
         }
 
         #region
@@ -38,6 +40,8 @@ namespace Diplomapp.ViewModels
         #endregion
         public async Task getlist()
         {
+            MyProjects.Clear();
+            Projects.Clear();
             Parallel.Invoke(
                 async ()=>
                 { 
@@ -47,14 +51,13 @@ namespace Diplomapp.ViewModels
                         ProjectGroups.Add(new Grouping<string, Project>("MyProjects", MyProjects));
                     }
                 },
-                async () => 
+                async () =>
                 { 
                     await GetProjects.ExecuteAsync();
                     if (Projects.Count != 0) 
                     {
                         ProjectGroups.Add(new Grouping<string, Project>("Projects", Projects));  
                     }
-                    
                 });
         }
         public async Task getMyProjects() // получить все компании пользователя 
@@ -71,10 +74,10 @@ namespace Diplomapp.ViewModels
                     MyProjects.AddRange(projects); }
                 }
             }
-        } 
+        }
         public async Task getProjects()
         {
-            using(App.client = new HttpClient()) 
+            using(App.client = new HttpClient())
             { 
                 App.client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", App.accessToken);
 
@@ -109,14 +112,15 @@ namespace Diplomapp.ViewModels
             /*[JsonProperty("PhoneNumber")]
             public long PhoneNumber { get; set; }*/
         }//класс юзеров
-        public async Task getAllUsers() // команда получения всех юзеров 
+        public async Task getid() // команда получения всех юзеров 
         {
             var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", App.accessToken);
 
-            var json = await client.GetStringAsync(App.localUrl + "api/Account/GetUsers");
+            var json = await client.GetStringAsync(App.localUrl + "api/Account/GetId");
 
-            var users = JsonConvert.DeserializeObject<List<user>>(json);
+            var users = JsonConvert.DeserializeObject<string>(json);
+            App.userId = users;
         }
         #endregion
        

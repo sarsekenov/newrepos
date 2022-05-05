@@ -23,12 +23,13 @@ namespace DiplomServer.Controllers
         public IQueryable<ProjectMember> GetProjectMembers()
         {
             string user = User.Identity.GetUserId();
-            return db.ProjectMembers.Where(c=>c.UserID == user);
+            return db.ProjectMembers.Where(c => c.UserID == user);
         }
-
-        public IQueryable<ProjectMember> GetMembersbyId(int id)
+        [HttpGet]
+        [Route("GetbyId")]
+        public IEnumerable<ProjectMember> GetbyId(int Id)
         {
-            return db.ProjectMembers.Where(c => c.ProjectID == id);
+            return db.ProjectMembers.Where(c => c.ProjectID == Id);
         }
 
         // GET: api/ProjectMembers/5

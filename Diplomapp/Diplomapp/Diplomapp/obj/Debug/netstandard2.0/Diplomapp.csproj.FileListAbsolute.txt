@@ -86,3 +86,4 @@ C:\Users\sars1\Desktop\newrepos\Diplomapp\Diplomapp\Diplomapp\obj\Debug\netstand
 C:\Users\sars1\Desktop\newrepos\Diplomapp\Diplomapp\Diplomapp\obj\Debug\netstandard2.0\Diplomapp.dll
 C:\Users\sars1\Desktop\newrepos\Diplomapp\Diplomapp\Diplomapp\obj\Debug\netstandard2.0\ref\Diplomapp.dll
 C:\Users\sars1\Desktop\newrepos\Diplomapp\Diplomapp\Diplomapp\obj\Debug\netstandard2.0\Diplomapp.pdb
+C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp\obj\Debug\netstandard2.0\Views\CreateInvitePage.xaml.g.cs

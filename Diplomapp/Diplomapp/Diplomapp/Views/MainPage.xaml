@@ -33,10 +33,6 @@
                     <ViewCell>
                         <StackLayout Orientation="Horizontal" >
                             <Label  Text="{Binding Key}" Margin="15,0,0,0"/>
-                            <Button Text="Add Project" 
-                                    BindingContext="{Binding Key}" 
-                                    HorizontalOptions="EndAndExpand" 
-                                    Clicked="Button_Clicked"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
@@ -52,7 +48,7 @@
                             <Frame  CornerRadius="20" BorderColor="Gray" Margin="10,5,10,5" >
                                 <StackLayout>
                                     <Label  Text="{Binding Name}"/>
-                                    <Label Margin="10,10,0,0" Text="{Binding Id}"/>
+                                    <Label Margin="10,10,0,0" Text="{Binding Description}"/>
                                 </StackLayout>
                             </Frame>
                         </StackLayout>

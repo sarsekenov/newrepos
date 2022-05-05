@@ -11,7 +11,7 @@ using Xamarin.Forms;
 
 namespace Diplomapp
 {
-    public partial class AppShell : Xamarin.Forms.Shell
+    public partial class AppShell : Shell
     {
         public AppShell()
         {
@@ -22,6 +22,7 @@ namespace Diplomapp
             Routing.RegisterRoute(nameof(ProjectPage), typeof(ProjectPage));
             Routing.RegisterRoute(nameof(AddCompany), typeof(AddCompany));
             Routing.RegisterRoute(nameof(TaskDetailPage), typeof(TaskDetailPage));
+            Routing.RegisterRoute(nameof(CreateInvitePage), typeof(CreateInvitePage));
             Logout = new AsyncCommand(logout);
             command = new Command(OnMenuItemClicked);
         }

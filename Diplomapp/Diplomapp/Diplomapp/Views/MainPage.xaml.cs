@@ -34,7 +34,7 @@ namespace Diplomapp.Views
             var item = ((ListView)sender).SelectedItem as Project;
             if (item == null)
                 return;
-            Shell.Current.GoToAsync($"//{nameof(ProjectPage)}?proj={item}");
+            Shell.Current.GoToAsync($"{nameof(ProjectPage)}?name={item.Name}&OwnerId={item.OwnerId}&Description={item.Description}&Id={item.Id}");
         }
 
         private void Button_Clicked(object sender, EventArgs e)

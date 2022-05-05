@@ -37,13 +37,13 @@ namespace DiplomServer.Controllers
             UserManager = userManager;
             AccessTokenFormat = accessTokenFormat;
         }
-        [AllowAnonymous]
+        //[HttpPost]
         [Route("GetUsers")]
-        public List<ApplicationUser> GetUsers()
+        public IEnumerable<ApplicationUser> GetUsers(string Name)
         {
-
-            return UserManager.Users.ToList();
-
+            if (Name == null) { return UserManager.Users.ToList(); }
+            string user = User.Identity.GetUserName();
+            return UserManager.Users.ToList().Where(c=> c.Email.Contains(Name) && c.Email != user);
         }
         [Route("GetId")]
         public string GetId()

@@ -8,7 +8,79 @@
         <viewmodel:ProjectPageViewModel/>
     </TabbedPage.BindingContext>
   <!--Pages can be added as references or inline-->
-  <ContentPage Title="Информация о проекте" />
-  <ContentPage Title="Команда" />
-  <ContentPage Title="Финансы" />
+    <ContentPage Title="Информация о проекте"  >
+    
+        <ContentPage.Content>
+            <StackLayout>
+                <Label Text="{Binding OwnerId}"/>
+                <Label Text="{Binding Name}"/>
+                <Entry  Text="{Binding Description}" />
+                
+            </StackLayout>            
+        </ContentPage.Content>
+    </ContentPage>
+    <ContentPage Title="Команда"  >
+        <!--<ContentPage.ToolbarItems>
+            <ToolbarItem  Text="Пригласить" />
+
+        </ContentPage.ToolbarItems>-->
+        <StackLayout>
+            <ListView 
+                ItemsSource="{Binding Members}"
+                RefreshCommand="{Binding getempl}"
+                IsPullToRefreshEnabled="True"
+                
+                >
+                <ListView.Header>
+                    <StackLayout Orientation="Horizontal">
+                        <Button HorizontalOptions="End" Text="Пригласить" Command="{Binding invite}"/>
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="model:ProjectMember">
+                        <ViewCell>
+                            <Frame>
+                                <StackLayout>
+                                    <Label Text="{Binding Id}"/>
+                                    <Label Text="{Binding ProjectID}"/>
+                                    <Label Text="{Binding Position}"/>
+                                    <Label Text="{Binding Role}"/>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Финансы" >
+        <StackLayout>
+            <ListView>
+                <ListView.Header>
+                    <Grid ColumnDefinitions="Auto,Auto,Auto,Auto">
+                        <Label Grid.Column="0"  Text="Сотрудник"/>
+                        <Label Grid.Column="1" Text= "Ставка"/>
+                        <Label Grid.Column="2" Text=" Зарплата"/>
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Grid ColumnDefinitions="Auto,Auto,Auto,Auto">
+                                    <Label Grid.Column="0" />
+                                    <Label Grid.Column="1" />
+                                    <Label Grid.Column="2" />
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.Footer>
+                    <Button Text="Рассчитать"/>
+                </ListView.Footer>
+                
+            </ListView>
+        </StackLayout>
+    </ContentPage>
 </TabbedPage>

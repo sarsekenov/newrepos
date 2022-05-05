@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:Diplomapp.ViewModels"
+             xmlns:xtc="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="Diplomapp.Views.CreateInvitePage">
+    <ContentPage.BindingContext>
+        <viewmodel:CreateInviteViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout >
+            <Label Text="{Binding Invite.Projectid}"/>
+            <Label Text="{Binding Invite.ProjectName}"/>
+            <Entry Text="{Binding Email}" Placeholder ="type users email" >
+                <Entry.Behaviors>
+                    <xtc:EventToCommandBehavior EventName="TextChanged" Command="{Binding getemail}"/>
+                </Entry.Behaviors>
+            </Entry>
+            <Entry Text="{Binding Invite.Invitation}" Placeholder="Type the invitation text"/>
+            <Button  Text="Отправить" Command="{Binding .}"/>
+            
+            <ListView ItemsSource="{Binding Users}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding Email}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
