@@ -105,7 +105,7 @@ mono_aot_mode_name:
 	.section	.rodata.env.str.8,"aMS",%progbits,1
 	.type	.L.env.str.8, %object
 .L.env.str.8:
-	.asciz	"13335d7f-d8b1-448f-bf29-014997e86729"
+	.asciz	"49566147-f85b-40b9-bb72-0c3a1e83da1d"
 	.size	.L.env.str.8, 37
 	.section	.rodata.env.str.9,"aMS",%progbits,1
 	.type	.L.env.str.9, %object
@@ -125,8 +125,8 @@ mono_aot_mode_name:
 	.section	.rodata.env.str.12,"aMS",%progbits,1
 	.type	.L.env.str.12, %object
 .L.env.str.12:
-	.asciz	"btls"
-	.size	.L.env.str.12, 5
+	.asciz	"legacy"
+	.size	.L.env.str.12, 7
 	.section	.rodata.env.str.13,"aMS",%progbits,1
 	.type	.L.env.str.13, %object
 .L.env.str.13:

@@ -79,7 +79,7 @@ namespace Diplomapp.ViewModels
             content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
             
             
-            var response = await  client.PostAsync("http://localhost:44314/api/Account/Register", content);
+            var response = await  client.PostAsync(App.localUrl +"/api/Account/Register", content);
             if (response.IsSuccessStatusCode)
             {
                await Shell.Current.GoToAsync(nameof(LoginPage));

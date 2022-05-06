@@ -32,7 +32,7 @@ namespace Diplomapp.Views
                 var response = await App.client.PostAsync(App.localUrl + "api/Projects", content);
                 string res = await response.Content.ReadAsStringAsync();
                 Project = JsonConvert.DeserializeObject<Project>(res);
-                await Shell.Current.GoToAsync($"///{nameof(ProjectPage)}?name={Project.Name}&OwnerId={Project.OwnerId}&Description={Project.Description}&Id={Project.Id}");
+                await Shell.Current.GoToAsync($"{nameof(ProjectPage)}?name={Project.Name}&OwnerId={Project.OwnerId}&Description={Project.Description}&Id={Project.Id}");
                 
                 /*json = JsonConvert.SerializeObject(new CompanyMember() { CompanyId = newres.Id, UserId = newres.OwnerId, Role = "Admin" });
                 content = new StringContent(json);

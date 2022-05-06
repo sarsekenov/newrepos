@@ -4,13 +4,18 @@
              xmlns:viewmodel="clr-namespace:Diplomapp.ViewModels"
              xmlns:xtc="http://xamarin.com/schemas/2020/toolkit"
              x:Class="Diplomapp.Views.CreateInvitePage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <xtc:ItemSelectedEventArgsConverter x:Key="ItemSelectedEventArgsConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.BindingContext>
         <viewmodel:CreateInviteViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout >
-            <Label Text="{Binding Invite.Projectid}"/>
-            <Label Text="{Binding Invite.ProjectName}"/>
+            <Label Text="{Binding Id}"/>
+            <Label Text="{Binding Name}"/>
             <Entry Text="{Binding Email}" Placeholder ="type users email" >
                 <Entry.Behaviors>
                     <xtc:EventToCommandBehavior EventName="TextChanged" Command="{Binding getemail}"/>
@@ -19,7 +24,11 @@
             <Entry Text="{Binding Invite.Invitation}" Placeholder="Type the invitation text"/>
             <Button  Text="Отправить" Command="{Binding .}"/>
             
-            <ListView ItemsSource="{Binding Users}">
+            <ListView ItemsSource="{Binding Users}"
+                      >
+                <ListView.Behaviors>
+                    <xtc:EventToCommandBehavior EventName="ItemSelected" Command="{Binding Selecteditem}" EventArgsConverter="{StaticResource ItemSelectedEventArgsConverter}"  />
+                </ListView.Behaviors>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

@@ -16,5 +16,6 @@ namespace Diplomapp.Views
         {
             InitializeComponent();
         }
+
     }
 }

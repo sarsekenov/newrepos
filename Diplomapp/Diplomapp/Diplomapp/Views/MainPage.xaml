@@ -13,6 +13,9 @@
         <viewmodel:MainPageViewModel>
         </viewmodel:MainPageViewModel>
     </ContentPage.BindingContext>
+    <ContentPage.Behaviors>
+        <extensions:EventToCommandBehavior EventName="Appearing" Command="{Binding command}"/>
+    </ContentPage.Behaviors>
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Создать проект"   Clicked = "ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>

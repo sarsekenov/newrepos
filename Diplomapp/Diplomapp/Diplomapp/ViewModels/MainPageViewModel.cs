@@ -25,7 +25,7 @@ namespace Diplomapp.ViewModels
             ProjectGroups = new ObservableRangeCollection<Grouping<string, Project>>();
             GetAllUsers = new AsyncCommand(getid);
             command = new AsyncCommand(getlist);
-            command.ExecuteAsync();
+            
         }
 
         #region
@@ -40,13 +40,14 @@ namespace Diplomapp.ViewModels
         #endregion
         public async Task getlist()
         {
+            ProjectGroups.Clear();
             MyProjects.Clear();
             Projects.Clear();
             Parallel.Invoke(
                 async ()=>
                 { 
                     await GetMyProjects.ExecuteAsync();
-                    if (MyProjects.Count != 0) 
+                    if (MyProjects.Count != 0)
                     { 
                         ProjectGroups.Add(new Grouping<string, Project>("MyProjects", MyProjects));
                     }
@@ -108,13 +109,13 @@ namespace Diplomapp.ViewModels
             [JsonProperty("Id")]
             public string Id { get; set; }
             [JsonProperty("UserName")]
-            public string UserName { get; set; }
+            public string UserName { get; set; }                               
             /*[JsonProperty("PhoneNumber")]
             public long PhoneNumber { get; set; }*/
         }//класс юзеров
         public async Task getid() // команда получения всех юзеров 
         {
-            var client = new HttpClient();
+            var client = new HttpClient(); 
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", App.accessToken);
 
             var json = await client.GetStringAsync(App.localUrl + "api/Account/GetId");

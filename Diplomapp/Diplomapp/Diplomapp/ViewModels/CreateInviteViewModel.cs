@@ -18,6 +18,7 @@ namespace Diplomapp.ViewModels
         public CreateInviteViewModel() 
         {
             getemail = new AsyncCommand(getlistofUsers);
+            Selecteditem = new AsyncCommand<user>(selected);
             Users = new ObservableRangeCollection<user>();
         }
         string name;
@@ -49,6 +50,15 @@ namespace Diplomapp.ViewModels
         
         public AsyncCommand getemail { get; set; }
         public string Email { get=>email; set=>SetProperty(ref email,value); }
+        async Task selected(user user) 
+        {
+            if (user == null)
+                return;
+            Email = user.Email;
+            Users.Clear();
+        }
+        
+        public AsyncCommand<user> Selecteditem { get; set; }
     }
     public class user
     {

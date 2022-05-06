@@ -35,16 +35,17 @@ namespace Diplomapp.ViewModels
             getempl = new AsyncCommand(GetEmployees);
             Members = new ObservableRangeCollection<ProjectMember>(); 
             Members.Clear();
-            getempl.ExecuteAsync();
+            //getempl.ExecuteAsync();
             
         }
         public AsyncCommand getempl { get; set; }
         public async Task inviteuser() 
         {
-            await Shell.Current.GoToAsync(nameof(CreateInvitePage)+"?name={Name}&Id={Id}");//передаем значения в форму 
+            await Shell.Current.GoToAsync(nameof(CreateInvitePage)+$"?name={Name}&Id={Id}");//передаем значения в форму 
         }
         public async Task GetEmployees() // Получаем всех работников этого проекта 
         {
+            Members.Clear();
             using (App.client = new System.Net.Http.HttpClient())
             {
                 App.client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", App.accessToken);
@@ -52,7 +53,7 @@ namespace Diplomapp.ViewModels
                 var employees = JsonConvert.DeserializeObject<List<ProjectMember>>(json);
                 if(employees.Count > 0) 
                 {
-                    Members.AddRange(employees); 
+                    Members.AddRange(employees);
                 }
                 
             }
