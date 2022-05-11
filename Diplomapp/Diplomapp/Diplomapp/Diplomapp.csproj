@@ -56,9 +56,6 @@
     <EmbeddedResource Update="Views\StatisticsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\TaskPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>

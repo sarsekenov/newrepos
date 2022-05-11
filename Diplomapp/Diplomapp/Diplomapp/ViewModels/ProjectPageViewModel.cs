@@ -31,18 +31,24 @@ namespace Diplomapp.ViewModels
         //public Project Project { get=>project; set=> SetProperty(ref project,value); }
         public ProjectPageViewModel() 
         {
+            GetProblems = new AsyncCommand(getProblems);
+            CreateTask = new AsyncCommand(createTask);
             invite = new AsyncCommand(inviteuser);
             getempl = new AsyncCommand(GetEmployees);
-            Members = new ObservableRangeCollection<ProjectMember>(); 
+            Members = new ObservableRangeCollection<ProjectMember>();
             Members.Clear();
-            //getempl.ExecuteAsync();
-            
+            SelectedProblem = new AsyncCommand<Problem>(selectedProblem);
         }
         public AsyncCommand getempl { get; set; }
         public async Task inviteuser() 
         {
             await Shell.Current.GoToAsync(nameof(CreateInvitePage)+$"?name={Name}&Id={Id}");//передаем значения в форму 
         }
+        public async Task createTask() 
+        {
+            await Shell.Current.GoToAsync(nameof(TaskDetailPage));
+        }
+        public AsyncCommand CreateTask { get; set; }
         public async Task GetEmployees() // Получаем всех работников этого проекта 
         {
             Members.Clear();
@@ -61,7 +67,30 @@ namespace Diplomapp.ViewModels
         }
         public ObservableRangeCollection<ProjectMember> Members { get; set; }
         public AsyncCommand invite { get; set; }
-        public ContentPage infoPage { get; set; }
+        
+        public ObservableRangeCollection<Problem> Problems { get; set; }
+        public AsyncCommand GetProblems { get; set; }
+        public AsyncCommand<Problem> SelectedProblem { get; set; }
+        async Task getProblems() 
+        {
+            
+            using (App.client = new System.Net.Http.HttpClient()) 
+            {
+                App.client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", App.accessToken);
+                var res = await App.client.GetStringAsync(App.localUrl + $"GetProblemsbyid?id={Id}");
+                var problems = JsonConvert.DeserializeObject<List<Problem>>(res);
+                if (problems.Count > 0) 
+                {
+                    Problems.Clear();
+                    Problems.AddRange(problems);
+                }
+            }
+        
+        }
+        async Task selectedProblem(Problem problem) 
+        {
+            await Shell.Current.GoToAsync(nameof(TaskDetailPage));
+        }
 
     }
 }

@@ -12,26 +12,60 @@ using System.Threading.Tasks;
 
 namespace Diplomapp.ViewModels
 {
-    public  class InviteViewModel:BaseViewModel
+    public class InviteViewModel : BaseViewModel
     {
-        public InviteViewModel() 
-        { 
+        public InviteViewModel()
+        {
             Invites = new ObservableRangeCollection<Invite>();
             command = new AsyncCommand(getinv);
+            Acceptinv = new AsyncCommand<Invite>(acceptinv);
         }
         public ObservableRangeCollection<Invite> Invites { get; set; }
         public AsyncCommand command { get; set; }
-        public async Task getinv() 
+        public async Task getinv()
         {
-            using (App.client = new HttpClient()) 
+            using (App.client = new HttpClient())
             {
-                App.client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer",App.accessToken);
+                Invites.Clear();
+                App.client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", App.accessToken);
                 var json = await App.client.GetStringAsync(App.localUrl + "api/Invites");
                 var invites = JsonConvert.DeserializeObject<List<Invite>>(json);
-                Invites.AddRange(invites);
+                if (invites.Count > 0)
+                {
+                    Invites.AddRange(invites);
+                }
+
             }
         }
+        public AsyncCommand<Invite> Acceptinv { get; set; }
+        async Task acceptinv(Invite invite)
+        {
+            using (App.client = new HttpClient())
+            {
+                App.client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", App.accessToken);
+                var mem = new ProjectMember() { UserID = invite.Userid,ProjectID = invite.Projectid , Position = invite.Position, Role = invite.Role};
+                var json = JsonConvert.SerializeObject(mem);
+                var con = new StringContent(json);
+                con.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                var res = await App.client.PostAsync(App.localUrl + $"api/ProjectMembers", con);
+                if (res.IsSuccessStatusCode) 
+                {
+                  await AppShell.Current.DisplayAlert("Приглашение принято",$"Вы были добавлены в рабочую группу проекта{invite.ProjectName}","ok");
+                }
+            }
+        }
+        void decline(Invite invite)
+        {
+            using (App.client = new HttpClient())
+            {
+                App.client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", App.accessToken);
+                var res = App.client.DeleteAsync(App.localUrl + "api/Invites/" + invite.Id);
+
+            }
+                Invites.Remove(invite);
+        }
     }
+
     
 
 }

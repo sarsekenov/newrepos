@@ -43,7 +43,7 @@ namespace Diplomapp.ViewModels
         public AsyncCommand register { get; set; }
         async Task Registeraction() 
         {
-            Shell.Current.GoToAsync(nameof(RegisterPage));
+            await Shell.Current.GoToAsync(nameof(RegisterPage));
         }
         internal class Token
             {
@@ -80,6 +80,7 @@ namespace Diplomapp.ViewModels
                 if (pairs.AccessToken != null)
                 {
                     App.accessToken = pairs.AccessToken;
+                    App.email = Username;
                     await Shell.Current.GoToAsync($"///{nameof(MainPage)}");
                 }
                 else 

@@ -21,8 +21,10 @@
                     <xtc:EventToCommandBehavior EventName="TextChanged" Command="{Binding getemail}"/>
                 </Entry.Behaviors>
             </Entry>
-            <Entry Text="{Binding Invite.Invitation}" Placeholder="Type the invitation text"/>
-            <Button  Text="Отправить" Command="{Binding .}"/>
+            <Entry Text="{Binding Invitation}" Placeholder="Type the invitation text"/>
+            <Entry Text="{Binding Role}" Placeholder = "Type the Role of new Member"/>
+            <Entry Text="{Binding Position}" Placeholder = "Type the Position of new Member"/>
+            <Button Text="Отправить" Command="{Binding sendInvite}"/>
             
             <ListView ItemsSource="{Binding Users}"
                       >

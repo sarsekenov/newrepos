@@ -42,7 +42,7 @@ namespace DiplomServer
                 // В рабочем режиме задайте AllowInsecureHttp = false
                 AllowInsecureHttp = true
             };
-
+            
             // Включение использования приложением маркера-носителя для проверки подлинности пользователей
             app.UseOAuthBearerTokens(OAuthOptions);
 

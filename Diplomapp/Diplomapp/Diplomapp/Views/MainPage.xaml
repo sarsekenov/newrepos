@@ -19,7 +19,7 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Создать проект"   Clicked = "ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
-    <ContentPage.Content >
+    <ContentPage.Content>
         <ListView HasUnevenRows="True" 
                   CachingStrategy="RecycleElement"
                   ItemsSource = "{Binding ProjectGroups}"
@@ -60,8 +60,7 @@
             </ListView.ItemTemplate>
             <ListView.Footer>
                 <StackLayout>
-                    <Button Command = "{Binding command}" Text="Click"/>
-                    <Button Command = "{Binding GetAllUsers}" Text="GetUsers"/>
+                    <Button Command = "{Binding command}" Text="Обновить"/>
                 </StackLayout>
             </ListView.Footer>
         </ListView>

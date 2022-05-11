@@ -12,6 +12,9 @@ namespace Diplomapp.Models
         public int Projectid { get; set; }
         public string OwnerEmail { get; set; }
         public string Invitation { get; set; }
+        public string Role { get; set; }
+        public string Position { get; set; }
+
         public string Userid { get; set; }
     }
 }

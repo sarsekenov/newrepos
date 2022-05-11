@@ -15,6 +15,7 @@ namespace Diplomapp
             InitializeComponent();
             MainPage = new AppShell();
         }
+        public static string email;
         public static HttpClient client= new HttpClient();
         public static string BaseUrl = "https://webapplication120220422170733.azurewebsites.net/";
         public static string localUrl = "http://localhost:44314/";

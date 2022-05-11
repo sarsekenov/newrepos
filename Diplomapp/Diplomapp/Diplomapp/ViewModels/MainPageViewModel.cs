@@ -43,23 +43,16 @@ namespace Diplomapp.ViewModels
             ProjectGroups.Clear();
             MyProjects.Clear();
             Projects.Clear();
-            Parallel.Invoke(
-                async ()=>
-                { 
                     await GetMyProjects.ExecuteAsync();
                     if (MyProjects.Count != 0)
                     { 
                         ProjectGroups.Add(new Grouping<string, Project>("MyProjects", MyProjects));
                     }
-                },
-                async () =>
-                { 
                     await GetProjects.ExecuteAsync();
                     if (Projects.Count != 0) 
                     {
                         ProjectGroups.Add(new Grouping<string, Project>("Projects", Projects));  
                     }
-                });
         }
         public async Task getMyProjects() // получить все компании пользователя 
         {
@@ -90,7 +83,7 @@ namespace Diplomapp.ViewModels
                     foreach (var member in members) 
                     {
                         json = null;
-                        json = await App.client.GetStringAsync(App.localUrl + $"api/Projects{member.ProjectID}");
+                        json = await App.client.GetStringAsync(App.localUrl + $"api/Projects/{member.ProjectID}");
                         var projects = JsonConvert.DeserializeObject<Project>(json);
                         if(projects != null) { 
                         Projects.Add(projects);}

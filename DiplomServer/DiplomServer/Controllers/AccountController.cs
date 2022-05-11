@@ -43,12 +43,19 @@ namespace DiplomServer.Controllers
         {
             if (Name == null) { return UserManager.Users.ToList(); }
             string user = User.Identity.GetUserName();
-            return UserManager.Users.ToList().Where(c=> c.Email.Contains(Name) && c.Email != user);
+            return UserManager.Users.ToList().Where(c => c.Email.Contains(Name) && c.Email != user);
         }
+
         [Route("GetId")]
-        public string GetId()
+        public string GetId(string mail)
         {
-            return User.Identity.GetUserId();
+            var user = UserManager.FindByEmail(mail);
+            return user.Id;
+        }
+        [Route("Getmail")]
+        public string Getmail() 
+        {
+            return User.Identity.Name;
         }
         public ApplicationUserManager UserManager
         {

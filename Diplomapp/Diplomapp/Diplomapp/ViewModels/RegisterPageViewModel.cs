@@ -85,8 +85,8 @@ namespace Diplomapp.ViewModels
                await Shell.Current.GoToAsync(nameof(LoginPage));
             }
             else 
-            { 
-
+            {
+               await Shell.Current.DisplayAlert("Не удалось зарегестрировать аккаунт"," ","Ок");
             }
         }
 

@@ -22,7 +22,11 @@ namespace DiplomServer.Controllers
         {
             return db.Problems;
         }
-
+        [Route("GetProblemsbyId")]
+        public IQueryable<Problem> GetProblemsbyId(int id)
+        {
+            return db.Problems.Where(c=>c.ProjectId == id);
+        }
         // GET: api/Problems/5
         [ResponseType(typeof(Problem))]
         public async Task<IHttpActionResult> GetProblem(int id)

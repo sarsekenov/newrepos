@@ -41,5 +41,7 @@ namespace DiplomServer.Models
         public System.Data.Entity.DbSet<DiplomServer.Models.Salary> Salaries { get; set; }
 
         public System.Data.Entity.DbSet<DiplomServer.Models.Invite> Invites { get; set; }
+
+        public System.Data.Entity.DbSet<DiplomServer.Models.oborudovanie> oborudovanies { get; set; }
     }
 }

@@ -10,23 +10,26 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
+
 namespace Diplomapp.ViewModels
 {
+    /*[QueryProperty(nameof(Name), "name")]
+    [QueryProperty(nameof(Id), "Id")]*/
     public class TaskDetailViewModel : BaseViewModel
     {
+        
         public TaskDetailViewModel()
         {
             Problem = new Problem();
-            //Checklists = new ObservableRangeCollection<ProblemChecklist>();
-            //Comments = new ObservableRangeCollection<ProblemComment>();
             command = new AsyncCommand(saveChanges);
         }
         public async Task saveChanges()
         {
-            var client = new HttpClient();
-            var json = JsonConvert.SerializeObject(Problem);
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(json);
-            
+            using (App.client = new HttpClient())
+            {
+                App.client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", App.accessToken);
+                
+            }
             
 
         }

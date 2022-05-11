@@ -13,6 +13,8 @@ namespace DiplomServer
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            app.MapSignalR("/chat",new Microsoft.AspNet.SignalR.HubConfiguration());
+
         }
 
     }

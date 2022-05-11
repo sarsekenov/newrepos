@@ -4,7 +4,11 @@
              x:Class="Diplomapp.Views.InvitesPage"
              xmlns:viewmodel ="clr-namespace:Diplomapp.ViewModels"
              xmlns:models="clr-namespace:Diplomapp.Models"
-             >
+             xmlns:xtc="http://xamarin.com/schemas/2020/toolkit"
+             x:Name="InviteView"            >
+    <ContentPage.Behaviors>
+        <xtc:EventToCommandBehavior EventName="Appearing" Command="{Binding command}"/>
+    </ContentPage.Behaviors>
     <ContentPage.BindingContext>
         <viewmodel:InviteViewModel/>
     </ContentPage.BindingContext>
@@ -21,7 +25,9 @@
                                     <Label  Text="{Binding OwnerEmail}" />
                                     <Label  Text="{Binding Invitation}" />
                                     <Label  Text="{Binding ProjectName}" />
-                                    <Button Text="Принять"/>
+                                    <Label  Text="{Binding Role}" />
+                                    <Label  Text="{Binding Position}" />
+                                    <Button Text="Принять" Command="{Binding Path=BindingContext.Acceptinv ,Source={x:Reference InviteView}}" CommandParameter ="{Binding .}"/>
                                     <Button Text="Отказаться"/>
                                 </StackLayout>      
                             </Frame>                      
