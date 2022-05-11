@@ -43,5 +43,9 @@ namespace DiplomServer.Models
         public System.Data.Entity.DbSet<DiplomServer.Models.Invite> Invites { get; set; }
 
         public System.Data.Entity.DbSet<DiplomServer.Models.oborudovanie> oborudovanies { get; set; }
+
+        public System.Data.Entity.DbSet<DiplomServer.Models.ProblemChecklist> ProblemChecklists { get; set; }
+
+        public System.Data.Entity.DbSet<DiplomServer.Models.ProblemComment> ProblemComments { get; set; }
     }
 }

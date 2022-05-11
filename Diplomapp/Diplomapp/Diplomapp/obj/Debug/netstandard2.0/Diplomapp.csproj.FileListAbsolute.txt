@@ -50,7 +50,6 @@ C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp\obj\Debug\netst
 C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
 C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp\obj\Debug\netstandard2.0\Views\RegisterPage.xaml.g.cs
 C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp\obj\Debug\netstandard2.0\Views\StatisticsPage.xaml.g.cs
-C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp\obj\Debug\netstandard2.0\Views\TaskPage.xaml.g.cs
 C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp\obj\Debug\netstandard2.0\Diplomapp.AssemblyInfoInputs.cache
 C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp\obj\Debug\netstandard2.0\Diplomapp.AssemblyInfo.cs
 C:\Users\777\source\repos\newrepos\Diplomapp\Diplomapp\Diplomapp\obj\Debug\netstandard2.0\Diplomapp.csproj.CoreCompileInputs.cache

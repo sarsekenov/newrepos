@@ -17,7 +17,7 @@ namespace Diplomapp.ViewModels
     [QueryProperty(nameof(Id), "Id")]*/
     public class TaskDetailViewModel : BaseViewModel
     {
-        
+
         public TaskDetailViewModel()
         {
             Problem = new Problem();
@@ -28,14 +28,17 @@ namespace Diplomapp.ViewModels
             using (App.client = new HttpClient())
             {
                 App.client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", App.accessToken);
-                
+
             }
-            
+
 
         }
+
         public AsyncCommand command { get; set; }
         public Problem Problem { get; set; }
-        //public ObservableRangeCollection<ProblemChecklist>Checklists { get; set; }
-        //public ObservableRangeCollection<ProblemComment> Comments{ get; set; }
+        public ProblemChecklist ProblemChecklist{ get; set; }
+        public ProblemComment ProblemComment{ get; set; }
+        public ObservableRangeCollection<ProblemChecklist>Checklists { get; set; }
+        public ObservableRangeCollection<ProblemComment> Comments{ get; set; }
     }
 }
