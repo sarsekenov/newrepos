@@ -8,50 +8,58 @@
         <viewmodel:TaskDetailViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Behaviors>
-        <xts:EventToCommandBehavior EventName="Appering" Command="{Binding }"/>
+        <xts:EventToCommandBehavior EventName="Appearing" Command="{Binding .}"/>
     </ContentPage.Behaviors>
     <ContentPage.Content>
+
         <StackLayout>
             <StackLayout BindingContext="{Binding Problem}">
                 <Label Text="{Binding Name}"/>
                 <Entry Text="{Binding Description}"/>
                 <Label Text="{Binding Created}"/>
-                <Label Text="{Binding Deadline}"/>
-                <Button Text="Save" Command= "{Binding command}"/>
+                <DatePicker BindingContext="{Binding Deadline}"/>
+
             </StackLayout>
-            <StackLayout BindingContext="{Binding .}">
-                <ListView ItemsSource="{Binding .}">
+            <StackLayout>
+                <ListView ItemsSource="{Binding Checklists}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <CheckBox BindingContext="{Binding IsChecked}"/>
+                                    <Label Text="{Binding ProblemName}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.Footer>
+                        <StackLayout>
+                            <Button Text="add checkbox"/>
+                        </StackLayout>
+                    </ListView.Footer>
+                </ListView>
+            </StackLayout>
+            <StackLayout>
+                <ListView ItemsSource="{Binding Comments}">
+                    <ListView.Header>
+                        <StackLayout>
+                            <Entry />
+                            <Button Text="Add comment"/>
+                        </StackLayout>
+                    </ListView.Header>
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout>
-                                    <CheckBox></CheckBox>
-                                    <Label></Label>
+                                    <Label Text="{Binding Text}"/>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
-            <StackLayout>
-                <ListView>
-                    <ListView.Header>
-                        <StackLayout>
-                            <Button>
-                                
-                            </Button>
-                        </StackLayout>
-                    </ListView.Header>
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout> </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackLayout>
-
+            <Button Text="Save" Command="{Binding command}"/>
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>

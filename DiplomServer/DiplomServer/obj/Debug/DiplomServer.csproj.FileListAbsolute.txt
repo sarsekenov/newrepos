@@ -283,3 +283,4 @@ C:\Users\sars1\Desktop\newrepos\DiplomServer\DiplomServer\obj\Debug\DiplomServer
 C:\Users\sars1\Desktop\newrepos\DiplomServer\DiplomServer\obj\Debug\DiplomServer.csproj.CopyComplete
 C:\Users\sars1\Desktop\newrepos\DiplomServer\DiplomServer\obj\Debug\DiplomServer.dll
 C:\Users\sars1\Desktop\newrepos\DiplomServer\DiplomServer\obj\Debug\DiplomServer.pdb
+C:\Users\sars1\Desktop\newrepos\DiplomServer\DiplomServer\obj\Debug\DiplomServer.csproj.AssemblyReference.cache

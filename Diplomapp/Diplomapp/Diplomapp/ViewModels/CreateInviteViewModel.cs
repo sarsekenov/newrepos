@@ -4,6 +4,7 @@ using MvvmHelpers.Commands;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -51,7 +52,8 @@ namespace Diplomapp.ViewModels
                 {
                     var res = await App.client.GetStringAsync(App.localUrl + $"api/Account/GetUsers?Name={Email}");
                     var userlist = JsonConvert.DeserializeObject<List<user>>(res);
-                    Users.AddRange(userlist);
+                    
+                    Users.AddRange(userlist.Where(c=>c.UserName!=App.email));
                 }
                 
             }

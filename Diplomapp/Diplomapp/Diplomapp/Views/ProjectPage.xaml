@@ -88,6 +88,32 @@
                 </ListView.Footer>
                 
             </ListView>
+            <ListView >
+                <ListView.Header>
+                    <Grid ColumnDefinitions="Auto,Auto,Auto,Auto">
+                        <Label Grid.Column="0"  Text="Сотрудник"/>
+                        <Label Grid.Column="1" Text= "Ставка"/>
+                        <Label Grid.Column="2" Text=" Зарплата"/>
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Grid ColumnDefinitions="Auto,Auto,Auto,Auto">
+                                    <Label Grid.Column="0" />
+                                    <Label Grid.Column="1" />
+                                    <Label Grid.Column="2" />
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.Footer>
+                    <Label/>
+                </ListView.Footer>
+                
+            </ListView>
         </StackLayout>
     </ContentPage>
     <ContentPage Title="Задачи">
@@ -108,7 +134,7 @@
                 </ListView.Behaviors>
                 <ListView.Header>
                     <StackLayout>
-                        <Button Text="Создать задание" Command="{Binding }"/> 
+                        <Button Text="Создать задание" Command="{Binding CreateTask}"/> 
                     </StackLayout>
                 </ListView.Header>
                 <ListView.ItemTemplate>

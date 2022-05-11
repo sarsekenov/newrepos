@@ -12,8 +12,8 @@ using Xamarin.Forms;
 namespace Diplomapp.ViewModels
 {
 
-[QueryProperty(nameof(Name), "name")]
-[QueryProperty(nameof(Id), "Id")]
+[QueryProperty(nameof(Name), "name")]// Project Name
+[QueryProperty(nameof(Id), "Id")] // Project Id
 [QueryProperty(nameof(OwnerId), "OwnerId")]
 [QueryProperty(nameof(Description), "Description")]
     public class ProjectPageViewModel:BaseViewModel
@@ -89,7 +89,7 @@ namespace Diplomapp.ViewModels
         }
         async Task selectedProblem(Problem problem) 
         {
-            await Shell.Current.GoToAsync(nameof(TaskDetailPage));
+            await Shell.Current.GoToAsync(nameof(TaskDetailPage)+$"?Name={Name}&Id={Id}&ProblemId={problem.Id}");
         }
 
     }
